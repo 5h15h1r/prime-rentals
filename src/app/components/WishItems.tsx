@@ -3,6 +3,7 @@
 import Link from "next/link";
 import React from "react";
 import { Item } from "../Utils/CardsList";
+import Image from "next/image";
 
 interface Props {
   item: Item;
@@ -13,7 +14,15 @@ const WishItems: React.FC<Props> = ({ item }) => {
     <>
       <Link href={`/details/${item.slug}`}>
         <div className="relative max-w-sm rounded-lg border border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800">
-          <img className="rounded-t-lg" src={item.img} alt="" />
+          <Image
+            className="rounded-t-lg"
+            src={item.img}
+            alt={item.title}
+            width={700} // Specify width
+            height={500} // Specify height
+            layout="responsive" // Ensures the image is responsive
+            objectFit="cover" // Ensures the image covers the space of its container
+          />
 
           <div className="p-5">
             <a href="#">

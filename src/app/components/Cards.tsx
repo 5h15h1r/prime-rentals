@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addToWishlist, removeFromWishlist } from "../../../redux/cartSlice";
@@ -61,7 +62,15 @@ const Cards: React.FC<Props> = ({ item }) => {
             </svg>
           </button>
 
-          <img className="rounded-t-lg" src={item.img} alt="" />
+          <Image
+            className="rounded-t-lg"
+            src={item.img}
+            alt={item.title}
+            width={700} // Specify width
+            height={500} // Specify height
+            layout="responsive" // Ensures the image is responsive
+            objectFit="cover" // Ensures the image covers the space of its container
+          />
 
           <div className="p-5">
             <h4 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">

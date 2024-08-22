@@ -2,6 +2,7 @@
 import Footer from "@/app/components/Footer";
 import Navbar from "@/app/components/Navbar";
 import { Item, property } from "@/app/Utils/CardsList";
+import Image from "next/image";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
@@ -29,10 +30,13 @@ const Details = () => {
       <Navbar />
       <div className="flex min-h-screen items-center justify-center p-4">
         <div className="relative h-full w-full rounded-lg bg-white bg-opacity-20 p-6 shadow-xl shadow-blue-200 backdrop-blur-xl transition-all duration-300 ease-in-out hover:max-w-4xl md:h-auto md:max-w-3xl">
-          <img
+          <Image
             src={details.img}
             alt={details.title}
-            className="mb-4 h-64 w-full rounded-t-lg object-cover md:h-96"
+            width={700} // Provide width
+            height={500} // Provide height
+            layout="responsive" // Make image responsive
+            className="mb-4 rounded-t-lg object-cover"
           />
           <div className="p-4">
             <h2 className="mb-2 text-2xl font-bold text-blue-900">
@@ -48,7 +52,7 @@ const Details = () => {
           </div>
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </>
   );
 };
