@@ -20,7 +20,6 @@ const WishItems: React.FC<Props> = ({ item }) => {
             alt={item.title}
             width={700} // Specify width
             height={500} // Specify height
-            layout="responsive" // Ensures the image is responsive
             objectFit="cover" // Ensures the image covers the space of its container
           />
 

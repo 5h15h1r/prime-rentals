@@ -35,8 +35,8 @@ const Details = () => {
             alt={details.title}
             width={700} // Provide width
             height={500} // Provide height
-            layout="responsive" // Make image responsive
             className="mb-4 rounded-t-lg object-cover"
+            priority={true}
           />
           <div className="p-4">
             <h2 className="mb-2 text-2xl font-bold text-blue-900">
