@@ -1,26 +1,56 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { useDispatch } from "react-redux";
+import { removeFromWishlist } from "../../../redux/cartSlice";
 import { Item } from "../Utils/CardsList";
-import Image from "next/image";
 
 interface Props {
   item: Item;
+  onDelete: (id: string) => void; // Add this prop for handling deletion
 }
 
 const WishItems: React.FC<Props> = ({ item }) => {
+  const dispatch = useDispatch();
+  const handleDelete = (e: React.MouseEvent) => {
+    e.preventDefault();
+    dispatch(removeFromWishlist(item.id));
+  };
+
   return (
     <>
       <Link href={`/details/${item.slug}`}>
         <div className="relative max-w-sm rounded-lg border border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800">
+          {/* Delete button */}
+          <button
+            onClick={handleDelete}
+            className="absolute right-2 top-2 z-10 rounded-full bg-blue-300 p-2 text-white hover:bg-blue-500 focus:outline-none"
+            aria-label="Delete"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-5 w-5"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fillRule="evenodd"
+                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                clipRule="evenodd"
+              />
+            </svg>
+          </button>
+
           <Image
             className="rounded-t-lg"
             src={item.img}
             alt={item.title}
-            width={700} // Specify width
-            height={500} // Specify height
-            objectFit="cover" // Ensures the image covers the space of its container
+            width={700}
+            height={500}
+            layout="responsive"
+            objectFit="cover"
           />
 
           <div className="p-5">

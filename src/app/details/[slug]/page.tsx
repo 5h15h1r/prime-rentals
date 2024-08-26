@@ -29,7 +29,7 @@ const Details = () => {
     <>
       <Navbar />
       <div className="flex min-h-screen items-center justify-center p-4">
-        <div className="relative h-full w-full rounded-lg bg-white bg-opacity-20 p-6 shadow-xl shadow-blue-200 backdrop-blur-xl transition-all duration-300 ease-in-out hover:max-w-4xl md:h-auto md:max-w-3xl">
+        <div className="relative h-full w-full rounded-lg bg-white bg-opacity-20 p-6 shadow-xl shadow-blue-200 md:h-auto md:max-w-3xl">
           <Image
             src={details.img}
             alt={details.title}

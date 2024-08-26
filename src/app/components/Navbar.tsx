@@ -97,12 +97,12 @@ const Navbar: React.FC = () => {
       </div>
 
       {/* Login and Signup buttons */}
-      <div className="flex items-center space-x-1 p-2 md:space-x-4">
+      <div className="flex items-center space-x-1  md:space-x-4">
         <button className="px-4 py-2 text-xs text-blue-900 hover:text-blue-700 md:text-base">
-          Log-in
+          Login
         </button>
         <button className="rounded bg-blue-900 px-4 py-1 text-xs text-white hover:border-2 hover:border-blue-900 hover:bg-white hover:text-blue-900 md:px-5 md:py-2 md:text-base">
-          Sign-Up
+          SignUp
         </button>
       </div>
 
