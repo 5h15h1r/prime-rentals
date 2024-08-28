@@ -9,7 +9,7 @@ import { Item } from "../Utils/CardsList";
 
 interface Props {
   item: Item;
-  onDelete: (id: string) => void; // Add this prop for handling deletion
+  // Add this prop for handling deletion
 }
 
 const WishItems: React.FC<Props> = ({ item }) => {
