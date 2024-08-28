@@ -1,7 +1,5 @@
-"use client";
-
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addToWishlist, removeFromWishlist } from "../../../redux/cartSlice";
@@ -39,7 +37,7 @@ const Cards: React.FC<Props> = ({ item }) => {
   return (
     <>
       <Link href={`/details/${item.slug}`}>
-        <div className="relative max-w-sm rounded-lg border border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800">
+        <div className="relative h-96 max-w-sm overflow-hidden rounded-lg border-2 border-blue-500 bg-white shadow">
           <button
             onClick={handleToggleFavorite}
             className="absolute right-2 top-2 z-10 transform transition-transform duration-300 ease-in-out hover:scale-110"
@@ -62,33 +60,36 @@ const Cards: React.FC<Props> = ({ item }) => {
             </svg>
           </button>
 
-          <Image
-            className="rounded-t-lg"
-            src={item.img}
-            alt={item.title}
-            width={700} // Specify width
-            height={500} // Specify height
-            objectFit="cover" // Ensures the image covers the space of its container
-          />
+          <div className="h-48">
+            <Image
+              className="rounded-t-lg object-cover"
+              src={item.img}
+              alt={item.title}
+              width={700}
+              height={500}
+              layout="responsive"
+            />
+          </div>
 
-          <div className="p-5">
-            <h4 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-              {item.title}
-            </h4>
-            <h6 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-              ₹{item.price}
-            </h6>
-
-            <p className="font-normal text-gray-700 dark:text-gray-400">
-              {item.address}
-            </p>
-            <div className="flex flex-row">
-              <h6 className="font-normal text-gray-700 dark:text-gray-400">
-                {item.size}
+          <div className="flex h-48 flex-col justify-between p-5">
+            <div>
+              <h4 className="mb-2 text-2xl font-bold tracking-tight text-gray-900">
+                {item.title}
+              </h4>
+              <h6 className="text-2xl font-bold tracking-tight text-gray-900">
+                ₹{item.price}
               </h6>
-              <p className="ml-2 font-normal text-gray-700 dark:text-gray-400">
-                {item.phoneNumber}
-              </p>
+              <p className="font-normal text-gray-700">{item.address}</p>
+            </div>
+            <div>
+              <hr className="border-1 border-blue-500"></hr>
+              <div className="flex flex-row justify-between">
+                <h6 className="font-normal text-gray-700">{item.size}</h6>
+                <p className="ml-2 font-normal text-gray-700">
+                  {item.phoneNumber}
+                </p>
+              </div>
+              <hr className="border-1 border-blue-500"></hr>
             </div>
           </div>
         </div>

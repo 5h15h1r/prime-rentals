@@ -1,4 +1,6 @@
+"use client";
 import Link from "next/link";
+
 import React, { useEffect, useState } from "react";
 
 const Navbar: React.FC = () => {
@@ -42,7 +44,7 @@ const Navbar: React.FC = () => {
 
   return (
     <nav
-      className={`sticky top-0 z-50 flex h-16 w-full items-center justify-between shadow-xl px-4 transition-all duration-300 ${
+      className={`sticky top-0 z-50 flex h-16 w-full items-center justify-between px-4 shadow-xl transition-all duration-300 ${
         isScrolling || isScrolled
           ? "bg-white bg-opacity-40"
           : "bg-white bg-opacity-60"
@@ -97,13 +99,19 @@ const Navbar: React.FC = () => {
       </div>
 
       {/* Login and Signup buttons */}
-      <div className="flex items-center space-x-1  md:space-x-4">
-        <button className="px-4 py-2 text-xs text-blue-900 hover:text-blue-700 md:text-base">
+      <div className="flex items-center space-x-1 md:space-x-4">
+        <Link
+          href="/login"
+          className="px-4 py-2 text-xs text-blue-900 hover:text-blue-700 md:text-base"
+        >
           Login
-        </button>
-        <button className="rounded bg-blue-900 px-4 py-1 text-xs text-white hover:border-2 hover:border-blue-900 hover:bg-white hover:text-blue-900 md:px-5 md:py-2 md:text-base">
+        </Link>
+        <Link
+          href="/signup"
+          className="rounded bg-blue-900 px-4 py-1 text-xs text-white hover:border-2 hover:border-blue-900 hover:bg-white hover:text-blue-900 md:px-5 md:py-2 md:text-base"
+        >
           SignUp
-        </button>
+        </Link>
       </div>
 
       {/* Burger menu for mobile */}
