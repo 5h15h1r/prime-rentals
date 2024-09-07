@@ -280,7 +280,7 @@ export const property: Item[] = [
 
 
 export interface Item {
-  [x: string]: any;
+  
   id: number;
   title: string;
   price: number;

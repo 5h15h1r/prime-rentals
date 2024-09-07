@@ -26,7 +26,7 @@ const WishItems: React.FC<Props> = ({ item }) => {
           {/* Delete button */}
           <button
             onClick={handleDelete}
-            className="absolute right-2 top-2 z-10 rounded-full bg-blue-300 p-2 text-white hover:bg-blue-500 focus:outline-none"
+            className="absolute right-2 top-2 z-10 rounded-full  p-2 text-white hover:bg-blue-500 focus:outline-none"
             aria-label="Delete"
           >
             <svg
